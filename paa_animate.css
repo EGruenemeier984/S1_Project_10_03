@@ -54,14 +54,31 @@ div.sprite {
 }
 
 div#bat {
-    width: 40px;
-    height: 50px;
+    background: url(paa_bat.png) no-repeat left center;
+    background-size: cover;
+    width: 50px;
+    height: 40px;
     top: 100px;
     left: -50px;
-    background: url("paa_bat.png") left center no-repeat cover;
 }
 
+div#butterfly {
+    background: url(paa_bfly.png) no-repeat left center;
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    top: 60px;
+    left: -50px;
+}
 
+div#fox {
+    background: url(paa_fox.png) no-repeat left center;
+    background-size: cover;
+    width: 280px;
+    height: 260px;
+    bottom: 10px;
+    right: 10px;
 
+}
 
 /* Animation Styles */
