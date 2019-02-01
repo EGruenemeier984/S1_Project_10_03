@@ -20,16 +20,19 @@
 
 
 /* Transition Effects */
+/* This effects the links in the nav with the id gameLinks and sets the position, color and sets the transition.  */
 nav#gameLinks a {
     position: relative;
     color: white;
     transition: color 0.5s;
 }
 
+/* This effects the links that the user hovers over thats in the nav with the id of gameLinks and sets the color to an rgb value. */
 nav#gameLinks a:hover {
     color: rgb(255, 194, 99);
 }
 
+/* This effects the links with the after psuedo class in the nav with the id of gameLinks and sets the content to an empty string, sets postion, sets the top and left coordinates, also sets width and height, sets the background to a linear gradient, sets the border radius, sets opacity, also sets the transition. */
 nav#gameLinks a::after {
     content: "";
     position: absolute;
@@ -43,18 +46,21 @@ nav#gameLinks a::after {
     transition: opacity 0.5s, width 0.5s
 }
 
+/* This effects the links after the user hovers over them in the nav with the id gameLinks then sets the opacity and width. */
 nav#gameLinks a:hover::after {
     opacity: 1;
     width: 100%;
 }
 
 /* Sprite Styles */
+/* This effects the divs with the sprite class and sets the postion to absoloute */
 div.sprite {
     position: absolute;
 }
 
+/* This effects the divs with the ID of bat and sets the background to the image, alsoe sets the width and height plus the top and left coordinates. */
 div#bat {
-    background: url(paa_bat.png) no-repeat left center;
+    background: url("paa_bat.png") no-repeat left center;
     background-size: cover;
     width: 50px;
     height: 40px;
@@ -62,8 +68,9 @@ div#bat {
     left: -50px;
 }
 
+/* This effects the divs with the ID of butterfly and sets the background to the image, alsoe sets the width and height plus the top and left coordinates. */
 div#butterfly {
-    background: url(paa_bfly.png) no-repeat left center;
+    background: url("paa_bfly.png") no-repeat left center;
     background-size: cover;
     width: 35px;
     height: 35px;
@@ -71,14 +78,63 @@ div#butterfly {
     left: -50px;
 }
 
+/* This effects the divs with the ID of fox and sets the background to the image, alsoe sets the width and height plus the top and left coordinates. */
 div#fox {
-    background: url(paa_fox.png) no-repeat left center;
+    background: url("paa_fox.png") no-repeat left center;
     background-size: cover;
     width: 280px;
     height: 260px;
     bottom: 10px;
     right: 10px;
-
 }
 
 /* Animation Styles */
+/* This creates an animation called playSprite and at 100% time it sets the background-position. */
+@keyframes playSprite {
+    100% {
+        background-position: right center;
+    }
+}
+
+/* This is a seperate selctor for the fox div so the animation can be implemented. */
+div#fox {
+    animation: playSprite 3.5s 4s steps(27) infinite;
+}
+
+/* This creates an animation called flyRight and sets the top coordinates diffrently across different time intervals. */
+@keyframes flyRight {
+    25% {
+        top: 150px;
+    }
+
+    50% {
+        top: 55px;
+    }
+
+    65% {
+        top: 120px;
+    }
+
+    90% {
+        top: 50px;
+    }
+
+    100% {
+        top: 80px;
+        left: 80px;
+        top: 100%;
+        left: 100%;
+    }
+}
+
+/* This effect the bat div and implments both of the animations created above */
+div#bat {
+    animation: playSprite 2s steps(39) infinite;
+    animation: flyRight 8s linear infinite;
+}
+
+/* This effect the butterfly div and implments both of the animations created above */
+div#butterfly {
+    animation: playSprite 1s 3s steps(33) infinite;
+    animation: flyRight 6s cubic-bezier(0, 1, 0.73, 0) infinite;
+}
